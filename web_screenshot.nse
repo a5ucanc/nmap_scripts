@@ -1,5 +1,5 @@
 local http = require "http"
-local stdnse = require "stdnse"
+local nmap = require "nmap"
 local shortport = require "shortport"
 
 description = [[
@@ -43,12 +43,12 @@ function action(host, port)
     file:close()
 
     -- Display a message indicating success
-    stdnse.print_status("Screenshot saved to " .. filename)
+    nmap.output("Screenshot saved to %s", filename)
 
   else
 
     -- Display a message indicating failure
-    stdnse.print_status("Failed to take screenshot of " .. url)
+    nmap.output("Failed to take screenshot of %s", url)
 
   end
 
